@@ -87,40 +87,42 @@ const Home = () => {
 
       {/* experience section start */}
       <section>
-        <Row>
-          <Col lg='6'>
-            <div className="experience__content">
-              <Subtitle subtitle={'Experience'} />
+        <Container>
+          <Row>
+            <Col lg='6'>
+              <div className="experience__content">
+                <Subtitle subtitle={'Experience'} />
 
-              <h2>With our all experience <br /> we will serve you </h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipsdjnfo elit.
-              <br />
-              tarudlsnm ipsum dolor ssectetur adipsdjnfo elit
-              </p>
-            </div>
+                <h2>With our all experience <br /> we will serve you </h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipsdjnfo elit.
+                <br />
+                tarudlsnm ipsum dolor ssectetur adipsdjnfo elit
+                </p>
+              </div>
 
-            <div className='counter__wrapper d-flex align-items-center gap-5'>
-              <div className='counter__box'>
-                <span>12k+</span>
-                <h6>Successful Trip</h6>
+              <div className='counter__wrapper d-flex align-items-center gap-5'>
+                <div className='counter__box'>
+                  <span>12k+</span>
+                  <h6>Successful Trip</h6>
+                </div>
+                <div className='counter__box'>
+                  <span>2k+</span>
+                  <h6>Regular Clients</h6>
+                </div>
+                <div className='counter__box'>
+                  <span>3+</span>
+                  <h6>Years Experience</h6>
+                </div>
               </div>
-              <div className='counter__box'>
-                <span>2k+</span>
-                <h6>Regular Clients</h6>
-              </div>
-              <div className='counter__box'>
-                <span>3+</span>
-                <h6>Years Experience</h6>
-              </div>
-            </div>
 
-          </Col>
-          <Col lg='6'>
-            <div className='experience__img'>
-              <img src={experienceImg} alt="" />
-            </div>
-          </Col>
-        </Row>
+            </Col>
+            <Col lg='6'>
+              <div className='experience__img'>
+                <img src={experienceImg} alt="" />
+              </div>
+            </Col>
+          </Row>
+        </Container>
       </section>
 
       {/* gallery section start */}
