@@ -5,6 +5,8 @@ import {useParams} from 'react-router-dom';
 import tourData from '../assets/data/tours'
 import calculateAvgRating from '../utils/avgRating';
 import avatar from '../assets/images/avatar.jpg'
+import Booking from "../components/Booking/Booking";
+
 
 const TourDetails = () => {
 
@@ -27,6 +29,7 @@ const TourDetails = () => {
       e.preventDefault();
       const reviewText = reviewMsgRef.current.value
 
+      
       // later will call our api
     }
 
@@ -46,7 +49,7 @@ const TourDetails = () => {
                   <div className="d-flex align-items-center gap-5">
                     <span className='tour__rating d-flex align-items-center gap-1'>
                           <i class="ri-star-fill" style={{'color':"var(--secondary-color)"}}></i> 
-                          {calculateAvgRating === 0 ? null : calculateAvgRating} 
+                          {avgRating === 0 ? null : calculateAvgRating} 
                           {totalRating === 0 ? ("Not rated") : (
                               <span>
                                   ({reviews.length}) 
@@ -87,7 +90,7 @@ const TourDetails = () => {
                 {/* tour reviews section */}
                 <div className='tour__reviews mt-4'>
                   <h4>Reviews ({reviews?.length} reviews)</h4>
-                  <Form>
+                  <Form onSubmit={submitHandler}>
                     <div className='d-flex align-items-center gap-3 mb-4 rating__group'>
                       <span onClick={()=> setTourRating(1)}>1 <i class="ri-star-s-fill"></i></span>
                       <span onClick={()=> setTourRating(2)}>2 <i class="ri-star-s-fill"></i></span>
@@ -97,7 +100,7 @@ const TourDetails = () => {
                     </div>
 
                     <div className='review__input'>
-                      <input type="text" ref={reviewMsgRef} placeholder="Share your thoughts..." />
+                      <input type="text" ref={reviewMsgRef} placeholder="Share your thoughts..." required />
                       <button className='btn primary__btn text-white' type='submit'>Submit</button>
                     </div>
 
@@ -133,6 +136,10 @@ const TourDetails = () => {
                 </div>
 
               </div>
+            </Col>
+
+            <Col lg='4'>
+              <Booking tour={tour} avgRating={avgRating} />
             </Col>
           </Row>
         </Container>
