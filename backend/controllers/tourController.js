@@ -12,4 +12,37 @@ export const createTour = async (req, res)=>{
     }catch(err){
         res.status(500).json({success:false, message:'Failed to create. Try again'})
     }
-}
+};
+
+// update tour
+export const updateTour = async (req, res) => {
+    try{
+
+    }catch (err){
+
+    }
+};
+// deleteTour
+export const deleteTour = async (req, res) => {
+    try{
+
+    }catch (err){
+
+    }
+};
+// getSingleTour
+export const getSingleTour = async (req, res) => {
+    try{
+
+    }catch (err){
+
+    }
+};
+// getAllTour
+export const getAllTour = async (req, res) => {
+    try{
+
+    }catch (err){
+
+    }
+};
