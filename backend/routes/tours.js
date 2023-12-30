@@ -1,5 +1,5 @@
 import express from 'express';
-import { createTour, updateTour, deleteTour, getSingleTour, getAllTour} from '../controllers/tourController.js';
+import { createTour, updateTour, deleteTour, getSingleTour, getAllTour, getTourBySearch} from '../controllers/tourController.js';
 
 const router = express.Router();
 
@@ -20,6 +20,8 @@ router.get('/:id', getSingleTour);
 // getAllTour new Tour
 router.get('/', getAllTour);
 
+// get tour by search
+router.get("/search/getTourBySearch", getTourBySearch)
 
 
 export default router;
