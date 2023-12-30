@@ -1,5 +1,5 @@
 import express from 'express';
-import { createTour, getAllTour, updateTour, deleteTour, getSingleTour } from '../controllers/tourController.js';
+import { createTour, updateTour, deleteTour, getSingleTour, getAllTour} from '../controllers/tourController.js';
 
 const router = express.Router();
 
@@ -8,14 +8,14 @@ const router = express.Router();
 // create new Tour
 router.post('/', createTour);
 
-// update new Tour
-router.put('/', updateTour);
+// // update new Tour
+router.put('/:id', updateTour);
 
 // delete new Tour
-router.delete('/', deleteTour);
+router.delete('/:id', deleteTour);
 
 // getSingle new Tour
-router.get('/', getSingleTour);
+router.get('/:id', getSingleTour);
 
 // getAllTour new Tour
 router.get('/', getAllTour);
