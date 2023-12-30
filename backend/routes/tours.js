@@ -8,7 +8,7 @@ const router = express.Router();
 // create new Tour
 router.post('/', createTour);
 
-// // update new Tour
+// update new Tour
 router.put('/:id', updateTour);
 
 // delete new Tour
