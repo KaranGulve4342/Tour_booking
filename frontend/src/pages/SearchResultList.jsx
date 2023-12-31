@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CommonSection from "./../shared/CommonSection";
+import CommonSection from "./../shared/CommonSection.jsx";
 import { Container, Row, Col} from 'reactstrap';
 import { useLocation } from 'react-router-dom';
 import TourCard from '../shared/TourCard';
