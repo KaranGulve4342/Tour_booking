@@ -8,14 +8,15 @@ import { BASE_URL } from '../../utils/config';
 
 const Booking = ({tour, avgRating}) => {
 
-    const {price, reviews} = tour;
+    const {price, reviews, title} = tour;
     const navigate = useNavigate()
 
     const {user} = useContext(AuthContext)
 
     const [booking, setBooking] = useState({
-        useId: '01',
-        userEmail: 'example@gmail.com',
+        useId: user && user._id,
+        userEmail: user && user.email,
+        tourName: title,
         fullName:'',
         phone:'',
         guestSize:1,
@@ -32,12 +33,34 @@ const Booking = ({tour, avgRating}) => {
     // send data to the server
     const handleClick =async e =>{
         e.preventDefault();
+
+        console.log(booking);
+
         try {
             if(!user || user === undefined || user === null){
                 return alert('Please sign in');
             }
+
+            const res = await fetch(`${BASE_URL}/booking`, {
+                method: 'post',
+                headers:{
+                    'content-type':'application/json'
+                },
+
+                credentials:'include',
+                body:JSON.stringify(booking)
+            })
+
+            const result = await res.json();
+
+            if(!res.ok){
+                return alert(result.message)
+            }
+            navigate("/thank-you");
+
         } catch (err) {
-            
+            alert(err.message)
+
         }
 
         navigate('/thank-you');
