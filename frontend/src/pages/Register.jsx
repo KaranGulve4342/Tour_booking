@@ -2,8 +2,8 @@ import React, { useState, useContext } from 'react';
 import { Container, Row, Col, Form, FormGroup, Button } from 'reactstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/login.css';
-import { AuthContext } from '../context/AuthContext';
-import { BASE_URL } from '../utils/config';
+import { AuthContext } from '../context/AuthContext.js';
+import { BASE_URL } from '../utils/config.js';
 
 import registerImg from '../assets/images/register.png';
 import userIcon from '../assets/images/user.png';
@@ -18,7 +18,7 @@ const Register = () => {
   const { dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleChange = e => {
+  const handleChange = e => { 
     setCredentials(prev => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
@@ -37,7 +37,7 @@ const Register = () => {
       const result = await res.json();
 
       if (!res.ok) {
-        throw new Error(result.message || 'Registration failed');
+        alert(result.message);
       }
 
       dispatch({ type: 'REGISTER_SUCCESS' });
